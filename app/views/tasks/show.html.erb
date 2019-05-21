@@ -1,0 +1,14 @@
+<h1><%=@task.title  %></h1>
+<div class="card">
+  <h3><%=@task.details%></h3>
+</div>
+<div class="card">
+  <h3><%if @task.completed%>  <i class="far fa-check-square"></i><%=' is done'%></h3>
+  <h3><%else%>  <i class="far fa-square"></i><%= 'not finished jet'%></h3>
+  <% end %>
+</div>
+
+<p></p>
+
+<button class="btn btn-outline-warning" type="submit"><%=link_to 'Edit', edit_task_path(@task) %></button>
+<p><%= link_to "home", tasks_path %></p>

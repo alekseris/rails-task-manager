@@ -1,0 +1,23 @@
+<h1>My tasks</h1>
+<%= link_to "create a new task", new_task_path %>
+<!-- <i class="far fa-check-square"></i>
+<i class="far fa-square"></i> -->
+<%@tasks.each  do |task| %>
+  <h3>
+<%if task.completed%>
+    <i class="far fa-check-square"></i>
+    <%=link_to task.title,  task_path(task)%>
+    <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </h3>
+  <h3>
+  <%else%>
+    <i class="far fa-square"></i>
+    <%=link_to task.title,  task_path(task) %>
+    <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </h3>
+<% end %>
+<% end %>
